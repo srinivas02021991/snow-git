@@ -48,14 +48,14 @@ jobs:
           echo "Step 3: Installing dbt-core and dbt-snowflake"
           pip install dbt-core dbt-snowflake
 
-      - name: Run dbt models
+            - name: Run dbt models
         env:
           DBT_USER: ${{ secrets.SF_USERNAME }}
           DBT_PASSWORD: ${{ secrets.SF_PASSWORD }}
           DBT_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
           DBT_ROLE: ${{ secrets.SF_ROLE }}
           DBT_DATABASE: ${{ secrets.SF_DATABASE }}
-          DBT_SCHEMA: MY_SCHEMA  # Replace with your schema
+          DBT_SCHEMA: MY_SCHEMA  # Replace with your schema name
           DBT_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
         run: |
           echo "Step 4: Creating dbt profile"
@@ -78,7 +78,8 @@ jobs:
           EOL
 
           echo "Step 5: Running dbt"
-          cd D:\DBT\DBT_Practice\practice_dbt_proj>   # Replace this with the path to your dbt project
+          cd $GITHUB_WORKSPACE/dbt/practice_dbt_proj  # <--- Update this to match your GitHub folder structure
           dbt deps
           dbt debug
           dbt run
+
