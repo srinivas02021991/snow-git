@@ -78,7 +78,7 @@ jobs:
           EOL
 
           echo "Step 5: Running dbt"
-          cd path/to/your/dbt/project  # Replace this with the path to your dbt project
+          cd D:\DBT\DBT_Practice\practice_dbt_proj>   # Replace this with the path to your dbt project
           dbt deps
           dbt debug
           dbt run
